@@ -1,0 +1,68 @@
+#!/bin/bash --login
+########## SBATCH Lines for Resource Request ##########
+
+# limit of wall clock time - how long the job will run (same as -t)
+# NOTE: could be increased for longer runs
+#SBATCH --time=03:00:00
+
+# number of different nodes - could be an exact number or a range of nodes 
+#SBATCH --nodes=1
+
+# number of CPUs (or cores) per task (same as -c)
+# to allocate an entire amd24 node, ask for all of the cores it has (40 in this case)
+#SBATCH --cpus-per-task=96          
+
+# use amd24 nodes.
+#SBATCH --constraint=amd24            
+
+# memory required per allocated  Node  - amount of memory (in bytes)
+# NOTE: could be increased if more memory is needed
+#SBATCH --mem=128G                  
+
+# you can give your job a name for easier identification (same as -J)
+#SBATCH --job-name pj1-re
+
+# send email notifications for job begin, end, and failure
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=sunzeai@msu.edu
+ 
+########## Command Lines to Run ##########
+module purge
+module load foss/2023a
+
+#
+# Change to the directory from which the job was submitted. In order for this to
+# work as intended, your job should be submitted from the directory in which you
+# want it to run.
+#
+cd ${SLURM_SUBMIT_DIR}
+#
+# Compile and run your code. The below option runs the compiled code in the test 
+# mode only. You can (and should) modify this part based on what kind of 
+# performance data you would like to collect (i.e., using the naive code for various 
+# matrix sizes, collecting cache utilization data using the TAU-instrumented version,
+# etc.)
+#
+
+# Once the script starts running, you can execute multiple commands sequentially
+
+# Compile 
+g++ -O3 -march=native matrix_mul.cpp -o matrix_mul
+
+# Run. The output will be saved to a file called "slurm-{JOB_ID}.out"
+# ./matrix_mul 1000
+
+# since you need to save the timings to analyze later, you can direct the outputs 
+# (stdout and stderr) to a speficied file
+
+# ./matrix_mul 1 >> result_1.txt
+# ./matrix_mul 5 >> result_5.txt
+# ./matrix_mul 10 >> result_10.txt
+# ./matrix_mul 50 >> result_50.txt
+# ./matrix_mul 100 >> result_100.txt
+# ./matrix_mul 1000 >> result_1000.txt
+# ./matrix_mul 5000 >> result_5000.txt
+# ./matrix_mul 10000 >> result_10000.txt
+# ./matrix_mul 100000 >> result_100000.txt
+# ./matrix_mul 1000000 >> result_1000000.txt
+# ./matrix_mul 10000000 >> result_10000000.txt
