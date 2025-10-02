@@ -1,0 +1,19 @@
+    62.79 FP64 GFLOPs
+
+  1469.64 Weight
+
+   251.14 L1
+   151.78 L2
+    88.75 L3
+    48.60 DRAM
+
+META_DATA
+  FLOPS          4
+  ERT_VERSION  1.1.0
+  HOSTNAME  ('dev-amd24.i', ['dev-amd24'], ['192.168.17.192'])
+  UNAME  uname_result(system='Linux', node='dev-amd24', release='5.15.0-126-generic', version='#136-Ubuntu SMP Wed Nov 6 10:38:22 UTC 2024', machine='x86_64')
+  TIMESTAMP_DATA  1759348042.258221
+  CONFIG  {'ERT_RESULTS': ['Results.EPYC9654.01'], 'ERT_DRIVER': ['driver1'], 'ERT_KERNEL': ['kernel1'], 'ERT_HIP': ['False'], 'ERT_GPU': ['False'], 'ERT_GPU_CFLAGS': ['-O3', '-gencode', 'arch=compute_70,code=sm_70'], 'ERT_GPU_LDFLAGS': [], 'ERT_FLOPS': ['1,2,4'], 'ERT_ALIGN': ['64'], 'ERT_CC': ['g++'], 'ERT_CFLAGS': ['-O3', '-march=native', '-fopenmp'], 'ERT_LD': ['g++'], 'ERT_LDFLAGS': ['-fopenmp'], 'ERT_LDLIBS': [], 'ERT_RUN': ['srun', '-n', '1', './ERT_CODE'], 'ERT_PRECISION': ['FP64'], 'ERT_BLOCKS_THREADS': ['16384'], 'ERT_GPU_BLOCKS': ['8192,4096,2048,1024'], 'ERT_GPU_THREADS': ['32,64,128,256'], 'ERT_NUM_EXPERIMENTS': ['3'], 'ERT_WSS_MULT': ['1.3'], 'ERT_MEMORY_MAX': ['536870912'], 'ERT_WORKING_SET_MIN': ['512'], 'ERT_TRIALS_MIN': ['32'], 'ERT_GNUPLOT': ['gnuplot'], 'ERT_MPI': [False], 'ERT_OPENMP': [False], 'ERT_OCL': [False], 'ERT_SYCL': [False]}
+  TIMESTAMP_DATA  1759348061.040741
+  TIMESTAMP_DATA  1759348082.0854104
+   
